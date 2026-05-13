@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wdth,wght@75..125,100..900&display=swap');
+
+:root {
+  --background: #FAF8F5;
+  --foreground: #1C1410;
+  --primary: #7C2D3E;
+  --primary-foreground: #FFF8F0;
+  --secondary: #F5EFE6;
+  --secondary-foreground: #4A2C1A;
+  --accent: #C9973A;
+  --accent-foreground: #1C1410;
+  --muted: #EDE8DF;
+  --muted-foreground: #7A6A5A;
+  --card: #FFFFFF;
+  --card-foreground: #1C1410;
+  --border: #DDD5C8;
+  --input: #EDE8DF;
+  --ring: #C9973A;
+  --radius: 0.75rem;
+  --font-sans: var(--font-plus-jakarta-sans), 'Plus Jakarta Sans', sans-serif;
+
+  --positive: #2D7A4F;
+  --positive-bg: #EDF7F2;
+  --warning: #A05C10;
+  --warning-bg: #FEF3E2;
+  --danger: #B91C1C;
+  --danger-bg: #FEF2F2;
+  --info: #1D4ED8;
+  --info-bg: #EFF6FF;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
+}
+
+@layer utilities {
+  .font-ethiopic {
+    font-family: 'Noto Sans Ethiopic', var(--font-sans);
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .text-hero-xl {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.15;
+  }
+
+  .cross-pattern {
+    background-image:
+      linear-gradient(var(--primary) 1px, transparent 1px),
+      linear-gradient(90deg, var(--primary) 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.04;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: var(--border);
+    border-radius: 10px;
+  }
+
+  .lesson-locked {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .gradient-primary {
+    background: linear-gradient(135deg, #7C2D3E 0%, #5A1E2B 100%);
+  }
+
+  .gradient-gold {
+    background: linear-gradient(135deg, #C9973A 0%, #A3742A 100%);
+  }
+
+  .sidebar-transition {
+    transition: width 300ms ease, transform 300ms ease;
+  }
+
+  .fade-in {
+    animation: fadeIn 200ms ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .pulse-gold {
+    animation: pulseGold 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseGold {
+    0%, 100% { background-color: transparent; }
+    50% { background-color: #FEF3E2; }
+  }
+
+  .scale-click {
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+
+  .scale-click:active {
+    transform: scale(0.97);
+  }
+}
