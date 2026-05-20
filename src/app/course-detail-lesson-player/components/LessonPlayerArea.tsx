@@ -74,7 +74,7 @@ The primary Eucharistic prayer of the Tewahido Church, the Anaphora of the Apost
 **መንፈስ ቅዱስ:** ሦስተኛ አካል፣ ሕይወት ሰጪ እና ቀዳሽ። መንፈስ ከአብ ብቻ ይወጣል።`,
   resources: [
     { id: 'res-001', name: 'Trinitarian Theology — Study Notes.pdf', size: '1.2 MB' },
-    { id: 'res-002', name: "Anaphora of the Apostles — Ge\'ez Text.pdf", size: '840 KB' },
+    { id: 'res-002', name: "Anaphora of the Apostles — Ge'ez Text.pdf", size: '840 KB' },
   ],
   prevLesson: { id: 'lesson-006', title: 'Monophysitism vs Miaphysitism' },
   nextLesson: { id: 'lesson-008', title: 'Saints, Intercession, and the Theotokos' },

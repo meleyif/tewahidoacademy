@@ -27,7 +27,7 @@ const enrolledCourses = [
   },
   {
     id: 'course-002',
-    title: "Ge\'ez Language for Liturgical Use",
+    title: "Introduction to Ge'ez Language",
     titleAm: 'ለቅዳሴ አገልግሎት የግዕዝ ቋንቋ',
     instructor: 'Deacon Dawit Bekele',
     thumbnail: 'https://images.unsplash.com/photo-1702654555176-e9ba70115818',

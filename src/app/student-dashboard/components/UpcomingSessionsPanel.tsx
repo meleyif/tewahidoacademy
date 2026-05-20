@@ -37,9 +37,9 @@ const upcomingSessions = [
   },
   {
     id: 'session-003',
-    title: "Ge\'ez Vowel Orders — Live Drill",
+    title: "Ge'ez Vowel Orders — Live Drill",
     titleAm: 'የግዕዝ ድምፅ ቅደም ተከተሎች — ቀጥታ ልምምድ',
-    course: "Ge\'ez Language for Liturgical Use",
+    course: "Ge'ez Language for Liturgical Use",
     courseAm: 'ለቅዳሴ አገልግሎት የግዕዝ ቋንቋ',
     instructor: 'Deacon Dawit Bekele',
     scheduledAt: 'Sat, May 16 · 10:00 AM EST',

@@ -40,11 +40,11 @@ export default function AuthBrand() {
 
         <blockquote className="space-y-3">
           <p className="text-2xl font-700 text-primary-foreground leading-snug">
-            "Learn the faith of your fathers,
+            &quot;Learn the faith of your fathers,
             <br />
-            in the language of your heart."
+            in the language of your heart.&quot;
           </p>
-          <p className="font-ethiopic text-lg text-white/80">"የአባቶቻችሁን እምነት ተማሩ"</p>
+          <p className="font-ethiopic text-lg text-white/80">&quot;የአባቶቻችሁን እምነት ተማሩ&quot;</p>
         </blockquote>
 
         <div className="space-y-3">
