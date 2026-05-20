@@ -24,10 +24,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     setLanguageState(lang);
   }, []);
 
-  const t = useCallback(
-    (key: string) => getTranslations(language)(key),
-    [language]
-  );
+  const t = useCallback((key: string) => getTranslations(language)(key), [language]);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t, isAmharic: language === 'am' }}>

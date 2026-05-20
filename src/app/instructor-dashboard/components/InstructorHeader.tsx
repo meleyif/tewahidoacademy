@@ -22,38 +22,48 @@ function CreateCourseModal({ onClose }: CreateCourseModalProps) {
       <div className="bg-card border border-border rounded-2xl shadow-xl w-full max-w-lg mx-4 p-6 fade-in">
         <div className="flex items-center justify-between mb-5">
           <h2 className="text-base font-700 text-foreground">Create New Course</h2>
-          <button onClick={onClose} className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-secondary transition-colors" aria-label="Close">
+          <button
+            onClick={onClose}
+            className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-secondary transition-colors"
+            aria-label="Close"
+          >
             <X size={16} className="text-muted-foreground" />
           </button>
         </div>
         <div className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="text-xs font-600 text-muted-foreground uppercase tracking-wider block mb-1.5">Title (English)</label>
+              <label className="text-xs font-600 text-muted-foreground uppercase tracking-wider block mb-1.5">
+                Title (English)
+              </label>
               <input
                 type="text"
                 value={form.titleEn}
-                onChange={e => setForm(f => ({ ...f, titleEn: e.target.value }))}
+                onChange={(e) => setForm((f) => ({ ...f, titleEn: e.target.value }))}
                 placeholder="Course title in English"
                 className="w-full px-3 py-2 text-sm bg-input border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-colors"
               />
             </div>
             <div>
-              <label className="text-xs font-600 text-muted-foreground uppercase tracking-wider block mb-1.5">Title (Amharic)</label>
+              <label className="text-xs font-600 text-muted-foreground uppercase tracking-wider block mb-1.5">
+                Title (Amharic)
+              </label>
               <input
                 type="text"
                 value={form.titleAm}
-                onChange={e => setForm(f => ({ ...f, titleAm: e.target.value }))}
+                onChange={(e) => setForm((f) => ({ ...f, titleAm: e.target.value }))}
                 placeholder="የኮርስ ርዕስ"
                 className="w-full px-3 py-2 text-sm bg-input border border-border rounded-lg text-foreground placeholder:text-muted-foreground font-ethiopic focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-colors"
               />
             </div>
           </div>
           <div>
-            <label className="text-xs font-600 text-muted-foreground uppercase tracking-wider block mb-1.5">Description</label>
+            <label className="text-xs font-600 text-muted-foreground uppercase tracking-wider block mb-1.5">
+              Description
+            </label>
             <textarea
               value={form.descriptionEn}
-              onChange={e => setForm(f => ({ ...f, descriptionEn: e.target.value }))}
+              onChange={(e) => setForm((f) => ({ ...f, descriptionEn: e.target.value }))}
               placeholder="Describe what students will learn…"
               rows={3}
               className="w-full px-3 py-2 text-sm bg-input border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-colors resize-none"
@@ -61,10 +71,12 @@ function CreateCourseModal({ onClose }: CreateCourseModalProps) {
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-xs font-600 text-muted-foreground uppercase tracking-wider block mb-1.5">Target Group</label>
+              <label className="text-xs font-600 text-muted-foreground uppercase tracking-wider block mb-1.5">
+                Target Group
+              </label>
               <select
                 value={form.targetGroup}
-                onChange={e => setForm(f => ({ ...f, targetGroup: e.target.value }))}
+                onChange={(e) => setForm((f) => ({ ...f, targetGroup: e.target.value }))}
                 className="w-full px-3 py-2 text-sm bg-input border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-colors"
               >
                 <option value="middle">Middle School (11–14)</option>
@@ -75,11 +87,13 @@ function CreateCourseModal({ onClose }: CreateCourseModalProps) {
               </select>
             </div>
             <div>
-              <label className="text-xs font-600 text-muted-foreground uppercase tracking-wider block mb-1.5">Price (USD)</label>
+              <label className="text-xs font-600 text-muted-foreground uppercase tracking-wider block mb-1.5">
+                Price (USD)
+              </label>
               <input
                 type="number"
                 value={form.priceUsd}
-                onChange={e => setForm(f => ({ ...f, priceUsd: e.target.value }))}
+                onChange={(e) => setForm((f) => ({ ...f, priceUsd: e.target.value }))}
                 placeholder="0.00"
                 min="0"
                 step="0.01"
@@ -88,12 +102,14 @@ function CreateCourseModal({ onClose }: CreateCourseModalProps) {
             </div>
           </div>
           <div>
-            <label className="text-xs font-600 text-muted-foreground uppercase tracking-wider block mb-1.5">Initial Status</label>
+            <label className="text-xs font-600 text-muted-foreground uppercase tracking-wider block mb-1.5">
+              Initial Status
+            </label>
             <div className="flex gap-2">
-              {['draft', 'published'].map(s => (
+              {['draft', 'published'].map((s) => (
                 <button
                   key={s}
-                  onClick={() => setForm(f => ({ ...f, status: s }))}
+                  onClick={() => setForm((f) => ({ ...f, status: s }))}
                   className={`flex-1 py-2 text-sm font-600 rounded-lg border transition-colors ${
                     form.status === s
                       ? 'bg-primary text-primary-foreground border-primary'
@@ -107,7 +123,10 @@ function CreateCourseModal({ onClose }: CreateCourseModalProps) {
           </div>
         </div>
         <div className="flex gap-3 mt-6">
-          <button onClick={onClose} className="flex-1 py-2.5 text-sm font-600 text-muted-foreground bg-secondary border border-border rounded-lg hover:bg-muted transition-colors">
+          <button
+            onClick={onClose}
+            className="flex-1 py-2.5 text-sm font-600 text-muted-foreground bg-secondary border border-border rounded-lg hover:bg-muted transition-colors"
+          >
             Cancel
           </button>
           <button
@@ -130,9 +149,7 @@ export default function InstructorHeader() {
       <div className="sticky top-0 z-30 bg-background/95 backdrop-blur-sm border-b border-border px-6 py-4 lg:px-8 xl:px-10 2xl:px-12">
         <div className="max-w-screen-2xl mx-auto flex items-center justify-between gap-4">
           <div>
-            <h1 className="text-xl font-700 text-foreground">
-              Instructor Studio ✞
-            </h1>
+            <h1 className="text-xl font-700 text-foreground">Instructor Studio ✞</h1>
             <p className="text-sm text-muted-foreground mt-0.5">
               Deaconess Miriam Tadesse — manage your courses and track student progress.
             </p>
@@ -144,7 +161,10 @@ export default function InstructorHeader() {
               <span className="font-500">Search courses…</span>
             </div>
 
-            <button className="relative w-9 h-9 flex items-center justify-center rounded-lg border border-border bg-card hover:bg-secondary transition-colors" aria-label="View notifications">
+            <button
+              className="relative w-9 h-9 flex items-center justify-center rounded-lg border border-border bg-card hover:bg-secondary transition-colors"
+              aria-label="View notifications"
+            >
               <Bell size={16} className="text-muted-foreground" />
               <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-danger" />
             </button>

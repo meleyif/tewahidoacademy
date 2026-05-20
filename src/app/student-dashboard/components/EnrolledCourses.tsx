@@ -116,10 +116,16 @@ export default function EnrolledCourses() {
                 <div className="flex items-start justify-between gap-2">
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2 flex-wrap mb-0.5">
-                      <Badge variant={course.group}>{course.group === 'deacon' ? 'Deacon Track' : 'College'}</Badge>
-                      <span className="text-xs text-muted-foreground font-500">{course.lastActivity}</span>
+                      <Badge variant={course.group}>
+                        {course.group === 'deacon' ? 'Deacon Track' : 'College'}
+                      </Badge>
+                      <span className="text-xs text-muted-foreground font-500">
+                        {course.lastActivity}
+                      </span>
                     </div>
-                    <h3 className={`text-sm font-700 text-foreground leading-snug truncate ${isAmharic ? 'font-ethiopic' : ''}`}>
+                    <h3
+                      className={`text-sm font-700 text-foreground leading-snug truncate ${isAmharic ? 'font-ethiopic' : ''}`}
+                    >
                       {isAmharic ? course.titleAm : course.title}
                     </h3>
                     <p className="text-xs text-muted-foreground mt-0.5">{course.instructor}</p>
@@ -140,7 +146,9 @@ export default function EnrolledCourses() {
                     <span className="text-muted-foreground font-500">
                       {course.completedLessons} of {course.totalLessons} lessons
                     </span>
-                    <span className="font-700 tabular-nums text-foreground">{course.progress}%</span>
+                    <span className="font-700 tabular-nums text-foreground">
+                      {course.progress}%
+                    </span>
                   </div>
                   <div className="h-1.5 bg-muted rounded-full overflow-hidden">
                     <div
@@ -156,13 +164,17 @@ export default function EnrolledCourses() {
 
                 {/* Next Lesson */}
                 <div className="mt-2 flex items-center gap-2">
-                  <span className={`text-xs text-muted-foreground font-500 ${isAmharic ? 'font-ethiopic' : ''}`}>
+                  <span
+                    className={`text-xs text-muted-foreground font-500 ${isAmharic ? 'font-ethiopic' : ''}`}
+                  >
                     {t('dashboard.next')}:
                   </span>
                   <Badge variant={lessonTypeConfig[course.nextLessonType].color}>
                     {lessonTypeConfig[course.nextLessonType].label}
                   </Badge>
-                  <span className={`text-xs text-foreground font-500 truncate ${isAmharic ? 'font-ethiopic' : ''}`}>
+                  <span
+                    className={`text-xs text-foreground font-500 truncate ${isAmharic ? 'font-ethiopic' : ''}`}
+                  >
                     {isAmharic ? course.nextLessonAm : course.nextLesson}
                   </span>
                   {course.nextLessonType === 'live' && (

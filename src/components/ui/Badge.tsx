@@ -1,6 +1,21 @@
 import React from 'react';
 
-type BadgeVariant = 'active' | 'completed' | 'locked' | 'live' | 'draft' | 'scheduled' | 'ended' | 'video' | 'pdf' | 'quiz' | 'text' | 'deacon' | 'college' | 'high' | 'middle';
+type BadgeVariant =
+  | 'active'
+  | 'completed'
+  | 'locked'
+  | 'live'
+  | 'draft'
+  | 'scheduled'
+  | 'ended'
+  | 'video'
+  | 'pdf'
+  | 'quiz'
+  | 'text'
+  | 'deacon'
+  | 'college'
+  | 'high'
+  | 'middle';
 
 const variantMap: Record<BadgeVariant, string> = {
   active: 'bg-positive-bg text-positive border-positive/20',

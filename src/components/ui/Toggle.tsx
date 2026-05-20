@@ -11,7 +11,9 @@ interface ToggleProps {
 
 export default function Toggle({ checked, onChange, label, disabled = false }: ToggleProps) {
   return (
-    <label className={`flex items-center gap-2 cursor-pointer ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}>
+    <label
+      className={`flex items-center gap-2 cursor-pointer ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+    >
       <button
         role="switch"
         aria-checked={checked}

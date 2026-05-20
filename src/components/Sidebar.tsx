@@ -30,9 +30,19 @@ export default function Sidebar() {
     {
       label: 'Learning',
       items: [
-        { href: '/student-dashboard', icon: LayoutDashboard, label: t('nav.myLearning'), badge: null },
+        {
+          href: '/student-dashboard',
+          icon: LayoutDashboard,
+          label: t('nav.myLearning'),
+          badge: null,
+        },
         { href: '/course-catalog', icon: Library, label: t('nav.courseCatalog'), badge: null },
-        { href: '/course-detail-lesson-player', icon: BookOpen, label: t('nav.courses'), badge: '3' },
+        {
+          href: '/course-detail-lesson-player',
+          icon: BookOpen,
+          label: t('nav.courses'),
+          badge: '3',
+        },
         { href: '/student-dashboard', icon: Video, label: t('nav.liveSessions'), badge: '1' },
         { href: '/student-dashboard', icon: Award, label: t('nav.certificates'), badge: null },
       ],
@@ -40,7 +50,12 @@ export default function Sidebar() {
     {
       label: 'Instructor',
       items: [
-        { href: '/instructor-dashboard', icon: PenSquare, label: t('nav.instructorStudio'), badge: null },
+        {
+          href: '/instructor-dashboard',
+          icon: PenSquare,
+          label: t('nav.instructorStudio'),
+          badge: null,
+        },
       ],
     },
     {
@@ -70,12 +85,20 @@ export default function Sidebar() {
       } min-h-screen`}
     >
       {/* Logo */}
-      <div className={`flex items-center gap-3 px-4 py-5 border-b border-border ${collapsed ? 'justify-center px-0' : ''}`}>
+      <div
+        className={`flex items-center gap-3 px-4 py-5 border-b border-border ${collapsed ? 'justify-center px-0' : ''}`}
+      >
         <AppLogo size={32} />
         {!collapsed && (
           <div className="flex flex-col min-w-0">
-            <span className={`font-bold text-sm text-foreground leading-tight truncate ${isAmharic ? 'font-ethiopic' : ''}`}>TewahidoAcademy</span>
-            <span className="text-xs text-muted-foreground leading-tight">Faith Digital Platform</span>
+            <span
+              className={`font-bold text-sm text-foreground leading-tight truncate ${isAmharic ? 'font-ethiopic' : ''}`}
+            >
+              TewahidoAcademy
+            </span>
+            <span className="text-xs text-muted-foreground leading-tight">
+              Faith Digital Platform
+            </span>
           </div>
         )}
       </div>
@@ -110,7 +133,8 @@ export default function Sidebar() {
                   href={item.href}
                   className={`group relative flex items-center gap-3 px-3 py-2.5 rounded-lg mb-0.5 transition-all duration-150 ${
                     active
-                      ? 'bg-primary/10 text-primary font-600' :'text-muted-foreground hover:bg-secondary hover:text-foreground'
+                      ? 'bg-primary/10 text-primary font-600'
+                      : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
                   } ${collapsed ? 'justify-center' : ''}`}
                   title={collapsed ? item.label : undefined}
                 >
@@ -119,7 +143,11 @@ export default function Sidebar() {
                     className={`shrink-0 ${active ? 'text-primary' : 'text-muted-foreground group-hover:text-foreground'}`}
                   />
                   {!collapsed && (
-                    <span className={`text-sm font-500 truncate ${isAmharic ? 'font-ethiopic' : ''}`}>{item.label}</span>
+                    <span
+                      className={`text-sm font-500 truncate ${isAmharic ? 'font-ethiopic' : ''}`}
+                    >
+                      {item.label}
+                    </span>
                   )}
                   {item.badge && !collapsed && (
                     <span className="ml-auto text-[10px] font-700 bg-primary text-primary-foreground rounded-full px-1.5 py-0.5 min-w-[18px] text-center leading-none">
@@ -164,7 +192,9 @@ export default function Sidebar() {
         </button>
 
         {/* User Profile */}
-        <div className={`flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-secondary cursor-pointer transition-colors ${collapsed ? 'justify-center' : ''}`}>
+        <div
+          className={`flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-secondary cursor-pointer transition-colors ${collapsed ? 'justify-center' : ''}`}
+        >
           <div className="w-7 h-7 rounded-full gradient-primary flex items-center justify-center shrink-0">
             <span className="text-xs font-700 text-primary-foreground">YA</span>
           </div>
@@ -175,7 +205,10 @@ export default function Sidebar() {
             </div>
           )}
           {!collapsed && (
-            <LogOut size={14} className="text-muted-foreground shrink-0 hover:text-danger transition-colors" />
+            <LogOut
+              size={14}
+              className="text-muted-foreground shrink-0 hover:text-danger transition-colors"
+            />
           )}
         </div>
       </div>

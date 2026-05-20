@@ -65,8 +65,13 @@ function CountdownTimer({ minutesUntil }: { minutesUntil: number }) {
   const m = mins % 60;
 
   if (mins <= 0) return <span className="text-xs font-700 text-danger">Starting now</span>;
-  if (mins < 60) return <span className="text-xs font-700 text-warning tabular-nums">{m}m away</span>;
-  return <span className="text-xs font-700 text-muted-foreground tabular-nums">{h}h {m}m</span>;
+  if (mins < 60)
+    return <span className="text-xs font-700 text-warning tabular-nums">{m}m away</span>;
+  return (
+    <span className="text-xs font-700 text-muted-foreground tabular-nums">
+      {h}h {m}m
+    </span>
+  );
 }
 
 export default function UpcomingSessionsPanel() {
@@ -82,7 +87,9 @@ export default function UpcomingSessionsPanel() {
               {t('dashboard.upcomingSessions')}
             </h2>
           </div>
-          <span className="text-xs font-600 text-muted-foreground">{upcomingSessions.length} scheduled</span>
+          <span className="text-xs font-600 text-muted-foreground">
+            {upcomingSessions.length} scheduled
+          </span>
         </div>
 
         <div className="divide-y divide-border">
@@ -96,12 +103,18 @@ export default function UpcomingSessionsPanel() {
                         Today
                       </span>
                     )}
-                    <Badge variant={session.status}>{session.isToday ? 'Live Soon' : 'Scheduled'}</Badge>
+                    <Badge variant={session.status}>
+                      {session.isToday ? 'Live Soon' : 'Scheduled'}
+                    </Badge>
                   </div>
-                  <p className={`text-sm font-700 text-foreground leading-snug ${isAmharic ? 'font-ethiopic' : ''}`}>
+                  <p
+                    className={`text-sm font-700 text-foreground leading-snug ${isAmharic ? 'font-ethiopic' : ''}`}
+                  >
                     {isAmharic ? session.titleAm : session.title}
                   </p>
-                  <p className={`text-xs text-muted-foreground mt-0.5 truncate ${isAmharic ? 'font-ethiopic' : ''}`}>
+                  <p
+                    className={`text-xs text-muted-foreground mt-0.5 truncate ${isAmharic ? 'font-ethiopic' : ''}`}
+                  >
                     {isAmharic ? session.courseAm : session.course}
                   </p>
                 </div>
@@ -131,7 +144,9 @@ export default function UpcomingSessionsPanel() {
                   <ExternalLink size={11} />
                   {session.isToday ? 'Join Session' : 'View Details'}
                 </Link>
-                <span className="text-xs text-muted-foreground">{session.durationMin} min · {session.instructor}</span>
+                <span className="text-xs text-muted-foreground">
+                  {session.durationMin} min · {session.instructor}
+                </span>
               </div>
             </div>
           ))}

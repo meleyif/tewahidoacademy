@@ -5,7 +5,6 @@ import { Flame, TrendingUp, Video, Award, Clock, AlertTriangle } from 'lucide-re
 import Link from 'next/link';
 import Icon from '@/components/ui/AppIcon';
 
-
 // Grid plan: 6 cards → grid-cols-4
 // Row 1: Streak (hero, spans 2 cols) + Overall Progress + Upcoming Session
 // Row 2: Certificates Earned + Sacred Study Hours + Missed Session (warning)
@@ -23,7 +22,7 @@ const metrics = [
     unit: 'days',
     trend: '+3 from last week',
     trendPositive: true,
-    sub: 'Keep it up — you\'re in the top 8% of students this month.',
+    sub: "Keep it up — you're in the top 8% of students this month.",
     bg: 'bg-gradient-to-br from-primary/5 to-accent/5',
     border: 'border-accent/20',
   },
@@ -101,7 +100,7 @@ const metrics = [
     label: 'Missed Session',
     value: '1',
     unit: 'recording available',
-    trend: 'Ge\'ez Alphabet — May 9',
+    trend: "Ge'ez Alphabet — May 9",
     trendPositive: false,
     sub: 'Watch recording to stay on track',
     bg: 'bg-warning-bg/40',
@@ -122,7 +121,9 @@ export default function MetricsBentoGrid() {
               className={`${m?.colSpan} ${m?.bg} border ${m?.border} rounded-xl p-4 shadow-card hover:shadow-card-hover transition-all duration-200 ${m?.alert ? 'pulse-gold' : ''}`}
             >
               <div className="flex items-start justify-between gap-3">
-                <div className={`w-9 h-9 rounded-lg ${m?.iconBg} flex items-center justify-center shrink-0`}>
+                <div
+                  className={`w-9 h-9 rounded-lg ${m?.iconBg} flex items-center justify-center shrink-0`}
+                >
                   <Icon size={18} className={m?.iconColor} />
                 </div>
                 {m?.alert && (
@@ -136,7 +137,9 @@ export default function MetricsBentoGrid() {
                   {m?.label}
                 </p>
                 <div className="flex items-end gap-1.5">
-                  <span className={`tabular-nums font-800 text-foreground ${m?.hero ? 'text-4xl' : 'text-2xl'}`}>
+                  <span
+                    className={`tabular-nums font-800 text-foreground ${m?.hero ? 'text-4xl' : 'text-2xl'}`}
+                  >
                     {m?.value}
                   </span>
                   {m?.unit && (
@@ -145,7 +148,9 @@ export default function MetricsBentoGrid() {
                 </div>
               </div>
               <div className="mt-2 space-y-0.5">
-                <p className={`text-xs font-600 ${m?.trendPositive ? 'text-positive' : 'text-warning'}`}>
+                <p
+                  className={`text-xs font-600 ${m?.trendPositive ? 'text-positive' : 'text-warning'}`}
+                >
                   {m?.trend}
                 </p>
                 <p className="text-xs text-muted-foreground leading-snug">{m?.sub}</p>

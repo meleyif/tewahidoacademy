@@ -4,7 +4,6 @@ import React from 'react';
 import { Users, BookOpen, TrendingUp, DollarSign, Star, Clock } from 'lucide-react';
 import Icon from '@/components/ui/AppIcon';
 
-
 const metrics = [
   {
     id: 'em-students',
@@ -120,7 +119,9 @@ export default function EnrollmentMetrics() {
               className={`${m?.colSpan} ${m?.bg} border ${m?.border} rounded-xl p-4 shadow-card hover:shadow-card-hover transition-all duration-200`}
             >
               <div className="flex items-start justify-between gap-3">
-                <div className={`w-9 h-9 rounded-lg ${m?.iconBg} flex items-center justify-center shrink-0`}>
+                <div
+                  className={`w-9 h-9 rounded-lg ${m?.iconBg} flex items-center justify-center shrink-0`}
+                >
                   <Icon size={18} className={m?.iconColor} />
                 </div>
               </div>
@@ -129,7 +130,9 @@ export default function EnrollmentMetrics() {
                   {m?.label}
                 </p>
                 <div className="flex items-end gap-1.5">
-                  <span className={`tabular-nums font-800 text-foreground ${m?.hero ? 'text-4xl' : 'text-2xl'}`}>
+                  <span
+                    className={`tabular-nums font-800 text-foreground ${m?.hero ? 'text-4xl' : 'text-2xl'}`}
+                  >
                     {m?.value}
                   </span>
                   {m?.unit && (
@@ -138,7 +141,9 @@ export default function EnrollmentMetrics() {
                 </div>
               </div>
               <div className="mt-2 space-y-0.5">
-                <p className={`text-xs font-600 ${m?.trendPositive ? 'text-positive' : 'text-warning'}`}>
+                <p
+                  className={`text-xs font-600 ${m?.trendPositive ? 'text-positive' : 'text-warning'}`}
+                >
                   {m?.trend}
                 </p>
                 <p className="text-xs text-muted-foreground leading-snug">{m?.sub}</p>

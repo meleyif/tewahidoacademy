@@ -2,7 +2,6 @@ import React from 'react';
 import { CheckCircle, BookOpen, Award, Video, FileText } from 'lucide-react';
 import Icon from '@/components/ui/AppIcon';
 
-
 const activities = [
   {
     id: 'act-001',
@@ -22,9 +21,9 @@ const activities = [
     iconColor: 'text-accent',
     iconBg: 'bg-warning-bg',
     title: 'Quiz passed',
-    detail: 'Ge\'ez Alphabet — Module 2 Quiz · 88%',
+    detail: "Ge'ez Alphabet — Module 2 Quiz · 88%",
     time: 'Yesterday',
-    course: 'Ge\'ez Language',
+    course: "Ge'ez Language",
   },
   {
     id: 'act-003',
@@ -73,13 +72,20 @@ export default function ActivityFeed() {
           {activities?.map((act) => {
             const Icon = act?.icon;
             return (
-              <div key={act?.id} className="flex items-start gap-3 px-4 py-3 hover:bg-secondary/30 transition-colors">
-                <div className={`w-7 h-7 rounded-lg ${act?.iconBg} flex items-center justify-center shrink-0 mt-0.5`}>
+              <div
+                key={act?.id}
+                className="flex items-start gap-3 px-4 py-3 hover:bg-secondary/30 transition-colors"
+              >
+                <div
+                  className={`w-7 h-7 rounded-lg ${act?.iconBg} flex items-center justify-center shrink-0 mt-0.5`}
+                >
                   <Icon size={13} className={act?.iconColor} />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-xs font-700 text-foreground">{act?.title}</p>
-                  <p className="text-xs text-muted-foreground leading-snug mt-0.5 truncate">{act?.detail}</p>
+                  <p className="text-xs text-muted-foreground leading-snug mt-0.5 truncate">
+                    {act?.detail}
+                  </p>
                   <div className="flex items-center gap-1.5 mt-1">
                     <span className="text-[10px] font-600 text-primary bg-primary/10 px-1.5 py-0.5 rounded-full">
                       {act?.course}
