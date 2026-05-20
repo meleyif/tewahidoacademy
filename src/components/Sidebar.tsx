@@ -131,11 +131,11 @@ export default function Sidebar() {
                 <Link
                   key={`nav-${item.label}`}
                   href={item.href}
-                  className={`group relative flex items-center gap-3 px-3 py-2.5 rounded-lg mb-0.5 transition-all duration-150 ${
+                  className={`group relative flex items-center gap-3 py-2.5 mb-0.5 transition-all duration-150 border-l-4 ${
                     active
-                      ? 'bg-primary/10 text-primary font-600'
-                      : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
-                  } ${collapsed ? 'justify-center' : ''}`}
+                      ? 'border-primary text-primary font-600 pl-2 pr-3'
+                      : 'border-transparent text-muted-foreground hover:bg-secondary hover:text-foreground pl-2 pr-3'
+                  } ${collapsed ? 'justify-center pl-0 pr-0' : ''}`}
                   title={collapsed ? item.label : undefined}
                 >
                   <item.icon
@@ -195,7 +195,7 @@ export default function Sidebar() {
         <div
           className={`flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-secondary cursor-pointer transition-colors ${collapsed ? 'justify-center' : ''}`}
         >
-          <div className="w-7 h-7 rounded-full gradient-primary flex items-center justify-center shrink-0">
+          <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center shrink-0">
             <span className="text-xs font-700 text-primary-foreground">YA</span>
           </div>
           {!collapsed && (

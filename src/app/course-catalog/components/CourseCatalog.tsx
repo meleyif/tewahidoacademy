@@ -232,7 +232,7 @@ function CourseCard({ course }: { course: Course }) {
   const description = isAmharic ? course.description_am : course.description_en;
 
   return (
-    <div className="bg-card border border-border rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-200 group flex flex-col">
+    <div className="bg-card border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 group flex flex-col">
       {/* Thumbnail */}
       <div className="relative h-44 overflow-hidden">
         <AppImage
@@ -330,13 +330,13 @@ function CourseCard({ course }: { course: Course }) {
           {course.isEnrolled ? (
             <Link
               href="/course-detail-lesson-player"
-              className="w-full flex items-center justify-center gap-2 py-2.5 gradient-primary text-primary-foreground text-sm font-700 rounded-lg hover:opacity-90 transition-all scale-click"
+              className="w-full flex items-center justify-center gap-2 py-2.5 bg-primary text-primary-foreground text-sm font-700 rounded-lg hover:opacity-90 transition-all scale-click"
             >
               <Play size={13} />
               {t('dashboard.resume')}
             </Link>
           ) : (
-            <button className="w-full flex items-center justify-center gap-2 py-2.5 gradient-primary text-primary-foreground text-sm font-700 rounded-lg hover:opacity-90 transition-all scale-click">
+            <button className="w-full flex items-center justify-center gap-2 py-2.5 bg-primary text-primary-foreground text-sm font-700 rounded-lg hover:opacity-90 transition-all scale-click">
               {t('catalog.enroll')}
             </button>
           )}
@@ -406,7 +406,7 @@ export default function CourseCatalog() {
                   onClick={() => setActiveGroup(filter.value)}
                   className={`px-3 py-1.5 text-xs font-600 rounded-lg transition-all scale-click ${
                     activeGroup === filter.value
-                      ? 'gradient-primary text-primary-foreground'
+                      ? 'bg-primary text-primary-foreground'
                       : 'bg-secondary text-muted-foreground hover:bg-muted hover:text-foreground border border-border'
                   } ${isAmharic ? 'font-ethiopic' : ''}`}
                 >

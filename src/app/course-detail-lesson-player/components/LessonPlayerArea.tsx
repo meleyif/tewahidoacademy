@@ -116,7 +116,7 @@ function PDFViewer({ title_en, title_am }: { title_en: string; title_am: string 
           <p className="text-xs text-muted-foreground mt-1">PDF Document · 1.2 MB</p>
         </div>
         <div className="flex gap-2">
-          <button className="flex items-center gap-1.5 px-4 py-2 gradient-primary text-primary-foreground text-xs font-700 rounded-lg hover:opacity-90 transition-all scale-click">
+          <button className="flex items-center gap-1.5 px-4 py-2 bg-primary text-primary-foreground text-xs font-700 rounded-lg hover:opacity-90 transition-all scale-click">
             <FileText size={12} />
             Open PDF
           </button>
@@ -235,7 +235,7 @@ export default function LessonPlayerArea() {
             <p className="text-sm text-muted-foreground">
               This is a live virtual classroom session scheduled for today at 7:00 PM EST.
             </p>
-            <button className="inline-flex items-center gap-2 px-6 py-3 gradient-primary text-primary-foreground font-700 rounded-lg hover:opacity-90 transition-all scale-click">
+            <button className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-700 rounded-lg hover:opacity-90 transition-all scale-click">
               Join Zoom Session
             </button>
           </div>
@@ -345,7 +345,7 @@ export default function LessonPlayerArea() {
               },
             ].map((comment) => (
               <div key={comment.id} className="flex gap-3">
-                <div className="w-8 h-8 rounded-full gradient-primary flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 mt-0.5">
                   <span className="text-[11px] font-700 text-primary-foreground">
                     {comment.avatar}
                   </span>
@@ -368,7 +368,7 @@ export default function LessonPlayerArea() {
 
             {/* Comment input */}
             <div className="flex gap-3 pt-2 border-t border-border">
-              <div className="w-8 h-8 rounded-full gradient-primary flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
                 <span className="text-[11px] font-700 text-primary-foreground">YA</span>
               </div>
               <div className="flex-1 flex gap-2">
@@ -379,7 +379,7 @@ export default function LessonPlayerArea() {
                   }
                   className={`flex-1 px-3 py-2 text-sm border border-border rounded-lg bg-card text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all ${isAmharic ? 'font-ethiopic' : ''}`}
                 />
-                <button className="flex items-center gap-1.5 px-3 py-2 gradient-primary text-primary-foreground text-xs font-700 rounded-lg hover:opacity-90 transition-all scale-click">
+                <button className="flex items-center gap-1.5 px-3 py-2 bg-primary text-primary-foreground text-xs font-700 rounded-lg hover:opacity-90 transition-all scale-click">
                   <MessageSquare size={12} />
                   Post
                 </button>
@@ -410,7 +410,7 @@ export default function LessonPlayerArea() {
             className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-700 transition-all scale-click ${isAmharic ? 'font-ethiopic' : ''} ${
               isCompleted
                 ? 'bg-positive-bg text-positive border border-positive/20'
-                : 'gradient-primary text-primary-foreground hover:opacity-90'
+                : 'bg-primary text-primary-foreground hover:opacity-90'
             }`}
           >
             {isCompleted

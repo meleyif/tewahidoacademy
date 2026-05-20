@@ -5,19 +5,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wdth,wght@75..125,100..900&display=swap');
 
 :root {
-  --background: #FAF8F5;
-  --foreground: #1C1410;
-  --primary: #7C2D3E;
-  --primary-foreground: #FFF8F0;
-  --secondary: #F5EFE6;
-  --secondary-foreground: #4A2C1A;
-  --accent: #C9973A;
-  --accent-foreground: #1C1410;
-  --muted: #EDE8DF;
-  --muted-foreground: #7A6A5A;
+  --background: #F5F7F8;
+  --foreground: #1C1D1F;
+  --primary: #0056D2;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F5F7F8;
+  --secondary-foreground: #1C1D1F;
+  --accent: #0056D2;
+  --accent-foreground: #FFFFFF;
+  --muted: #E5E7EB;
+  --muted-foreground: #6A6F73;
   --card: #FFFFFF;
-  --card-foreground: #1C1410;
-  --border: #DDD5C8;
+  --card-foreground: #1C1D1F;
+  --border: #D1D7DC;
   --input: #EDE8DF;
   --ring: #C9973A;
   --radius: 0.75rem;
@@ -102,11 +102,11 @@
   }
 
   .gradient-primary {
-    background: linear-gradient(135deg, #7C2D3E 0%, #5A1E2B 100%);
+    background: #0056D2;
   }
 
   .gradient-gold {
-    background: linear-gradient(135deg, #C9973A 0%, #A3742A 100%);
+    background: #0056D2;
   }
 
   .sidebar-transition {
