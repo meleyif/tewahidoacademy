@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { Eye, EyeOff, Copy, Check, Globe, ArrowRight, Loader2, AlertCircle } from 'lucide-react';
 import { toast } from 'sonner';
+import { createClient } from '@/lib/supabase/client';
 
 type AuthTab = 'login' | 'register';
 type UserRole = 'student' | 'instructor' | 'deacon';
@@ -65,8 +66,8 @@ const studentGroups: { value: StudentGroup; label: string; ages: string; icon: s
   { value: 'deacon', label: 'Clergy Track', ages: 'Ordained / Candidate', icon: '⛪' },
 ];
 
-export default function AuthForms() {
-  const [tab, setTab] = useState<AuthTab>('login');
+export default function AuthForms({ defaultTab = 'login' }: { defaultTab?: AuthTab }) {
+  const [tab, setTab] = useState<AuthTab>(defaultTab);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [lang, setLang] = useState<'EN' | 'AM'>('EN');
@@ -110,31 +111,47 @@ export default function AuthForms() {
   const onLogin = async (data: LoginFormData) => {
     setIsLoading(true);
     setLoginError('');
-    // BACKEND: POST /api/v1/auth/login with { email, password }
-    await new Promise((r) => setTimeout(r, 1200));
 
-    const isValid = demoCredentials.some(
-      (c) => c.email === data.email && c.password === data.password
-    );
+    const supabase = createClient();
+    const { error } = await supabase.auth.signInWithPassword({
+      email: data.email,
+      password: data.password,
+    });
 
-    if (!isValid) {
-      setLoginError('Invalid credentials — use the demo accounts below to sign in.');
-      setIsLoading(false);
-      return;
-    }
-
-    toast.success('Welcome back! Redirecting to your learning dashboard...');
-    setTimeout(() => router.push('/student-dashboard'), 800);
     setIsLoading(false);
+    if (error) {
+      setLoginError(error.message);
+    } else {
+      toast.success('Welcome back! Redirecting to your learning dashboard...');
+      setTimeout(() => router.push('/student-dashboard'), 800);
+    }
   };
 
   const onRegister = async (data: RegisterFormData) => {
     setIsLoading(true);
-    // BACKEND: POST /api/v1/auth/register with { ...data, role: selectedRole, studentGroup: selectedGroup }
-    await new Promise((r) => setTimeout(r, 1400));
-    toast.success('Account created! Check your email to verify your address.');
-    setTab('login');
+
+    const supabase = createClient();
+    const { error } = await supabase.auth.signUp({
+      email: data.email,
+      password: data.password,
+      options: {
+        data: {
+          full_name: data.fullName,
+          role: selectedRole,
+          student_group: selectedGroup,
+          parent_email: data.parentEmail,
+          locale: lang.toLowerCase(),
+        },
+      },
+    });
+
     setIsLoading(false);
+    if (error) {
+      toast.error(error.message);
+    } else {
+      toast.success('Account created! Redirecting to dashboard...');
+      setTimeout(() => router.push('/student-dashboard'), 800);
+    }
   };
 
   const watchPassword = registerForm.watch('password');
