@@ -38,7 +38,8 @@ function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
     <div className="bg-card border border-border rounded-lg shadow-modal px-3 py-2 text-xs">
       <p className="font-700 text-foreground mb-1">{label}</p>
       <p className="text-muted-foreground">
-        <span className="font-600 text-foreground tabular-nums">{payload[0].value}h</span> study time
+        <span className="font-600 text-foreground tabular-nums">{payload[0].value}h</span> study
+        time
       </p>
       {data && (
         <p className="text-muted-foreground">
@@ -73,7 +74,11 @@ export default function WeeklyStudyChartInner() {
       </div>
 
       <ResponsiveContainer width="100%" height={160}>
-        <BarChart data={weeklyData} barSize={28} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
+        <BarChart
+          data={weeklyData}
+          barSize={28}
+          margin={{ top: 4, right: 4, left: -20, bottom: 0 }}
+        >
           <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
           <XAxis
             dataKey="day"
@@ -96,8 +101,8 @@ export default function WeeklyStudyChartInner() {
                   index === todayIndex
                     ? 'var(--primary)'
                     : entry.hours === 0
-                    ? 'var(--muted)'
-                    : 'var(--accent)'
+                      ? 'var(--muted)'
+                      : 'var(--accent)'
                 }
                 opacity={index === todayIndex ? 1 : 0.75}
               />

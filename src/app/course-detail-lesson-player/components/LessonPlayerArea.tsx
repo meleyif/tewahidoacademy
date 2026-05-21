@@ -1,7 +1,16 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, BookOpen, Download, MessageSquare, ThumbsUp, FileText, AlignLeft } from 'lucide-react';
+import {
+  ChevronLeft,
+  ChevronRight,
+  BookOpen,
+  Download,
+  MessageSquare,
+  ThumbsUp,
+  FileText,
+  AlignLeft,
+} from 'lucide-react';
 import VideoPlayer from './VideoPlayer';
 import QuizPlayer from './QuizPlayer';
 import Badge from '@/components/ui/Badge';
@@ -20,7 +29,8 @@ const lessonData = {
   description: `In this lesson, we explore the Ethiopian Orthodox Tewahido Church's unique theological articulation of the Holy Trinity — the Father, Son (Iyesus Kristos), and the Holy Spirit. Unlike Western Trinitarian formulations, the Tewahido tradition emphasizes the inseparable unity of the three persons while affirming the complete divine nature of Christ.
 
 We will examine key Ge'ez theological terms, references from the Anaphora of the Apostles, and how this doctrine shapes daily liturgical practice and prayer.`,
-  descriptionAm: 'ይህ ትምህርት ስለ ቅድስት ሥላሴ — አብ፣ ወልድ፣ እና መንፈስ ቅዱስ — የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያን ትምህርት ያብራራል። ከምዕራባዊ ሥላሴ ቀመሮች በተለየ፣ የተዋሕዶ ወግ ሦስቱ አካላት የማይነጣጠሉ አንድነት ላይ ያተኩራል።',
+  descriptionAm:
+    'ይህ ትምህርት ስለ ቅድስት ሥላሴ — አብ፣ ወልድ፣ እና መንፈስ ቅዱስ — የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያን ትምህርት ያብራራል። ከምዕራባዊ ሥላሴ ቀመሮች በተለየ፣ የተዋሕዶ ወግ ሦስቱ አካላት የማይነጣጠሉ አንድነት ላይ ያተኩራል።',
   videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
   thumbnailUrl: 'https://images.unsplash.com/photo-1598520058913-745d0a55859a',
   thumbnailAlt: 'Open ancient religious manuscript with illuminated text and ornate decorations',
@@ -64,7 +74,7 @@ The primary Eucharistic prayer of the Tewahido Church, the Anaphora of the Apost
 **መንፈስ ቅዱስ:** ሦስተኛ አካል፣ ሕይወት ሰጪ እና ቀዳሽ። መንፈስ ከአብ ብቻ ይወጣል።`,
   resources: [
     { id: 'res-001', name: 'Trinitarian Theology — Study Notes.pdf', size: '1.2 MB' },
-    { id: 'res-002', name: "Anaphora of the Apostles — Ge\'ez Text.pdf", size: '840 KB' },
+    { id: 'res-002', name: "Anaphora of the Apostles — Ge'ez Text.pdf", size: '840 KB' },
   ],
   prevLesson: { id: 'lesson-006', title: 'Monophysitism vs Miaphysitism' },
   nextLesson: { id: 'lesson-008', title: 'Saints, Intercession, and the Theotokos' },
@@ -106,7 +116,7 @@ function PDFViewer({ title_en, title_am }: { title_en: string; title_am: string 
           <p className="text-xs text-muted-foreground mt-1">PDF Document · 1.2 MB</p>
         </div>
         <div className="flex gap-2">
-          <button className="flex items-center gap-1.5 px-4 py-2 gradient-primary text-primary-foreground text-xs font-700 rounded-lg hover:opacity-90 transition-all scale-click">
+          <button className="flex items-center gap-1.5 px-4 py-2 bg-primary text-primary-foreground text-xs font-700 rounded-lg hover:opacity-90 transition-all scale-click">
             <FileText size={12} />
             Open PDF
           </button>
@@ -131,16 +141,30 @@ function TextViewer({ content_en, content_am }: { content_en: string; content_am
         <AlignLeft size={15} className="text-info" />
         <span className="text-sm font-700 text-foreground">Reading Material</span>
       </div>
-      <div className={`p-6 prose prose-sm max-w-none text-foreground leading-relaxed ${isAmharic ? 'font-ethiopic' : ''}`}>
+      <div
+        className={`p-6 prose prose-sm max-w-none text-foreground leading-relaxed ${isAmharic ? 'font-ethiopic' : ''}`}
+      >
         {content.split('\n').map((line, i) => {
           if (line.startsWith('## ')) {
-            return <h2 key={i} className="text-lg font-700 text-foreground mt-4 mb-2">{line.replace('## ', '')}</h2>;
+            return (
+              <h2 key={i} className="text-lg font-700 text-foreground mt-4 mb-2">
+                {line.replace('## ', '')}
+              </h2>
+            );
           }
           if (line.startsWith('### ')) {
-            return <h3 key={i} className="text-base font-700 text-foreground mt-3 mb-1.5">{line.replace('### ', '')}</h3>;
+            return (
+              <h3 key={i} className="text-base font-700 text-foreground mt-3 mb-1.5">
+                {line.replace('### ', '')}
+              </h3>
+            );
           }
           if (line.startsWith('**') && line.endsWith('**')) {
-            return <p key={i} className="font-700 text-foreground mt-2">{line.replace(/\*\*/g, '')}</p>;
+            return (
+              <p key={i} className="font-700 text-foreground mt-2">
+                {line.replace(/\*\*/g, '')}
+              </p>
+            );
           }
           if (line.startsWith('- **')) {
             const parts = line.replace('- **', '').split('**');
@@ -152,7 +176,11 @@ function TextViewer({ content_en, content_am }: { content_en: string; content_am
             );
           }
           if (line.trim() === '') return <div key={i} className="h-2" />;
-          return <p key={i} className="text-sm text-muted-foreground leading-relaxed">{line}</p>;
+          return (
+            <p key={i} className="text-sm text-muted-foreground leading-relaxed">
+              {line}
+            </p>
+          );
         })}
       </div>
     </div>
@@ -168,16 +196,19 @@ export default function LessonPlayerArea() {
   return (
     <div className="flex-1 min-w-0 overflow-y-auto scrollbar-thin bg-background">
       <div className="max-w-4xl mx-auto px-4 py-5 lg:px-8 xl:px-10 space-y-5 2xl:max-w-5xl">
-
         {/* Lesson Title */}
         <div className="space-y-1">
           <div className="flex items-center gap-2 flex-wrap">
             <Badge variant="video">Video</Badge>
             <span className="text-xs text-muted-foreground font-500">{lessonData.module}</span>
             <span className="text-xs text-muted-foreground">·</span>
-            <span className="text-xs text-muted-foreground tabular-nums">{lessonData.durationMin} min</span>
+            <span className="text-xs text-muted-foreground tabular-nums">
+              {lessonData.durationMin} min
+            </span>
           </div>
-          <h2 className={`text-xl font-700 text-foreground leading-snug ${isAmharic ? 'font-ethiopic' : ''}`}>
+          <h2
+            className={`text-xl font-700 text-foreground leading-snug ${isAmharic ? 'font-ethiopic' : ''}`}
+          >
             {isAmharic ? lessonData.titleAm : lessonData.title}
           </h2>
           <p className="text-sm text-muted-foreground font-500">{lessonData.instructor}</p>
@@ -189,15 +220,22 @@ export default function LessonPlayerArea() {
           <PDFViewer title_en={lessonData.pdfTitle_en} title_am={lessonData.pdfTitle_am} />
         )}
         {lessonType === 'text' && (
-          <TextViewer content_en={lessonData.textContent_en} content_am={lessonData.textContent_am} />
+          <TextViewer
+            content_en={lessonData.textContent_en}
+            content_am={lessonData.textContent_am}
+          />
         )}
         {lessonType === 'quiz' && <QuizPlayer />}
         {lessonType === 'live' && (
           <div className="bg-info-bg border border-info/20 rounded-xl p-8 text-center space-y-4">
-            <span className="text-4xl" aria-label="Live session">🎥</span>
+            <span className="text-4xl" aria-label="Live session">
+              🎥
+            </span>
             <h3 className="text-lg font-700 text-foreground">Live Session — Starting Soon</h3>
-            <p className="text-sm text-muted-foreground">This is a live virtual classroom session scheduled for today at 7:00 PM EST.</p>
-            <button className="inline-flex items-center gap-2 px-6 py-3 gradient-primary text-primary-foreground font-700 rounded-lg hover:opacity-90 transition-all scale-click">
+            <p className="text-sm text-muted-foreground">
+              This is a live virtual classroom session scheduled for today at 7:00 PM EST.
+            </p>
+            <button className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-700 rounded-lg hover:opacity-90 transition-all scale-click">
               Join Zoom Session
             </button>
           </div>
@@ -212,7 +250,8 @@ export default function LessonPlayerArea() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`px-4 py-2.5 text-sm font-600 border-b-2 transition-all ${isAmharic ? 'font-ethiopic' : ''} ${
                   activeTab === tab.id
-                    ? 'border-primary text-primary' :'border-transparent text-muted-foreground hover:text-foreground'
+                    ? 'border-primary text-primary'
+                    : 'border-transparent text-muted-foreground hover:text-foreground'
                 }`}
               >
                 {isAmharic ? tab.label_am : tab.label_en}
@@ -225,7 +264,9 @@ export default function LessonPlayerArea() {
         {activeTab === 'overview' && (
           <div className="space-y-4 fade-in">
             <div className="flex items-center justify-between">
-              <h3 className={`text-sm font-700 text-foreground ${isAmharic ? 'font-ethiopic' : ''}`}>
+              <h3
+                className={`text-sm font-700 text-foreground ${isAmharic ? 'font-ethiopic' : ''}`}
+              >
                 {isAmharic ? 'ስለዚህ ትምህርት' : 'About this lesson'}
               </h3>
               <button
@@ -236,7 +277,9 @@ export default function LessonPlayerArea() {
                 {isAmharic ? 'View in English' : 'View in አማርኛ'}
               </button>
             </div>
-            <div className={`text-sm text-muted-foreground leading-relaxed whitespace-pre-line ${isAmharic ? 'font-ethiopic' : ''}`}>
+            <div
+              className={`text-sm text-muted-foreground leading-relaxed whitespace-pre-line ${isAmharic ? 'font-ethiopic' : ''}`}
+            >
               {isAmharic ? lessonData.descriptionAm : lessonData.description}
             </div>
           </div>
@@ -276,20 +319,45 @@ export default function LessonPlayerArea() {
               {isAmharic ? 'የትምህርት ውይይት' : 'Lesson Discussion'}
             </h3>
             {[
-              { id: 'disc-001', user: 'Selam Habtamu', avatar: 'SH', time: '1 day ago', text: "The distinction between Miaphysitism and Monophysitism was so clearly explained — I've been confused about this for years!", likes: 4 },
-              { id: 'disc-002', user: 'Dawit Mengistu', avatar: 'DM', time: '2 days ago', text: "Could Deaconess Miriam recommend a Ge'ez source text that covers the Trinitarian doxologies used in the Kidasie?", likes: 2 },
-              { id: 'disc-003', user: 'Tigist Bekele', avatar: 'TB', time: '3 days ago', text: 'Lesson 6 and 7 together really build on each other. I recommend reading the Anaphora PDF before watching this video.', likes: 7 },
+              {
+                id: 'disc-001',
+                user: 'Selam Habtamu',
+                avatar: 'SH',
+                time: '1 day ago',
+                text: "The distinction between Miaphysitism and Monophysitism was so clearly explained — I've been confused about this for years!",
+                likes: 4,
+              },
+              {
+                id: 'disc-002',
+                user: 'Dawit Mengistu',
+                avatar: 'DM',
+                time: '2 days ago',
+                text: "Could Deaconess Miriam recommend a Ge'ez source text that covers the Trinitarian doxologies used in the Kidasie?",
+                likes: 2,
+              },
+              {
+                id: 'disc-003',
+                user: 'Tigist Bekele',
+                avatar: 'TB',
+                time: '3 days ago',
+                text: 'Lesson 6 and 7 together really build on each other. I recommend reading the Anaphora PDF before watching this video.',
+                likes: 7,
+              },
             ].map((comment) => (
               <div key={comment.id} className="flex gap-3">
-                <div className="w-8 h-8 rounded-full gradient-primary flex items-center justify-center shrink-0 mt-0.5">
-                  <span className="text-[11px] font-700 text-primary-foreground">{comment.avatar}</span>
+                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <span className="text-[11px] font-700 text-primary-foreground">
+                    {comment.avatar}
+                  </span>
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-700 text-foreground">{comment.user}</span>
                     <span className="text-xs text-muted-foreground">{comment.time}</span>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{comment.text}</p>
+                  <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
+                    {comment.text}
+                  </p>
                   <button className="flex items-center gap-1 mt-2 text-xs text-muted-foreground hover:text-foreground transition-colors">
                     <ThumbsUp size={12} />
                     <span className="font-500 tabular-nums">{comment.likes}</span>
@@ -300,16 +368,18 @@ export default function LessonPlayerArea() {
 
             {/* Comment input */}
             <div className="flex gap-3 pt-2 border-t border-border">
-              <div className="w-8 h-8 rounded-full gradient-primary flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
                 <span className="text-[11px] font-700 text-primary-foreground">YA</span>
               </div>
               <div className="flex-1 flex gap-2">
                 <input
                   type="text"
-                  placeholder={isAmharic ? 'ጥያቄ ይጠይቁ ወይም ሀሳብ ያካፍሉ…' : 'Ask a question or share an insight…'}
+                  placeholder={
+                    isAmharic ? 'ጥያቄ ይጠይቁ ወይም ሀሳብ ያካፍሉ…' : 'Ask a question or share an insight…'
+                  }
                   className={`flex-1 px-3 py-2 text-sm border border-border rounded-lg bg-card text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all ${isAmharic ? 'font-ethiopic' : ''}`}
                 />
-                <button className="flex items-center gap-1.5 px-3 py-2 gradient-primary text-primary-foreground text-xs font-700 rounded-lg hover:opacity-90 transition-all scale-click">
+                <button className="flex items-center gap-1.5 px-3 py-2 bg-primary text-primary-foreground text-xs font-700 rounded-lg hover:opacity-90 transition-all scale-click">
                   <MessageSquare size={12} />
                   Post
                 </button>
@@ -323,10 +393,14 @@ export default function LessonPlayerArea() {
           <button className="flex items-center gap-2 px-4 py-2.5 border border-border bg-card rounded-lg text-sm font-600 text-muted-foreground hover:bg-secondary hover:text-foreground transition-all scale-click">
             <ChevronLeft size={15} />
             <div className="text-left hidden sm:block">
-              <p className={`text-[10px] uppercase tracking-wider text-muted-foreground font-600 ${isAmharic ? 'font-ethiopic normal-case' : ''}`}>
+              <p
+                className={`text-[10px] uppercase tracking-wider text-muted-foreground font-600 ${isAmharic ? 'font-ethiopic normal-case' : ''}`}
+              >
                 {isAmharic ? 'ቀዳሚ' : 'Previous'}
               </p>
-              <p className="text-xs font-600 text-foreground truncate max-w-[160px]">{lessonData.prevLesson.title}</p>
+              <p className="text-xs font-600 text-foreground truncate max-w-[160px]">
+                {lessonData.prevLesson.title}
+              </p>
             </div>
           </button>
 
@@ -335,20 +409,29 @@ export default function LessonPlayerArea() {
             onClick={() => setIsCompleted(!isCompleted)}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-700 transition-all scale-click ${isAmharic ? 'font-ethiopic' : ''} ${
               isCompleted
-                ? 'bg-positive-bg text-positive border border-positive/20' :'gradient-primary text-primary-foreground hover:opacity-90'
+                ? 'bg-positive-bg text-positive border border-positive/20'
+                : 'bg-primary text-primary-foreground hover:opacity-90'
             }`}
           >
             {isCompleted
-              ? (isAmharic ? '✓ ተጠናቅቋል' : '✓ Completed')
-              : (isAmharic ? 'እንደ ተጠናቀቀ ምልክት አድርግ' : 'Mark as Complete')}
+              ? isAmharic
+                ? '✓ ተጠናቅቋል'
+                : '✓ Completed'
+              : isAmharic
+                ? 'እንደ ተጠናቀቀ ምልክት አድርግ'
+                : 'Mark as Complete'}
           </button>
 
           <button className="flex items-center gap-2 px-4 py-2.5 border border-border bg-card rounded-lg text-sm font-600 text-muted-foreground hover:bg-secondary hover:text-foreground transition-all scale-click">
             <div className="text-right hidden sm:block">
-              <p className={`text-[10px] uppercase tracking-wider text-muted-foreground font-600 ${isAmharic ? 'font-ethiopic normal-case' : ''}`}>
+              <p
+                className={`text-[10px] uppercase tracking-wider text-muted-foreground font-600 ${isAmharic ? 'font-ethiopic normal-case' : ''}`}
+              >
                 {isAmharic ? 'ቀጣይ' : 'Next'}
               </p>
-              <p className="text-xs font-600 text-foreground truncate max-w-[160px]">{lessonData.nextLesson.title}</p>
+              <p className="text-xs font-600 text-foreground truncate max-w-[160px]">
+                {lessonData.nextLesson.title}
+              </p>
             </div>
             <ChevronRight size={15} />
           </button>

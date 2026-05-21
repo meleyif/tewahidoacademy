@@ -42,11 +42,11 @@ export default function Modal({ isOpen, onClose, title, children, size = 'md' }:
         onClick={onClose}
         aria-hidden="true"
       />
-      <div
-        className={`relative bg-card rounded-xl shadow-modal w-full ${sizeMap[size]} fade-in`}
-      >
+      <div className={`relative bg-card rounded-xl shadow-modal w-full ${sizeMap[size]} fade-in`}>
         <div className="flex items-center justify-between px-5 py-4 border-b border-border">
-          <h2 id="modal-title" className="text-base font-700 text-foreground">{title}</h2>
+          <h2 id="modal-title" className="text-base font-700 text-foreground">
+            {title}
+          </h2>
           <button
             onClick={onClose}
             className="w-7 h-7 rounded-lg flex items-center justify-center text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"

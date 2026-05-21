@@ -6,7 +6,8 @@ import AppImage from '@/components/ui/AppImage';
 
 // BACKEND: lesson.content_url from Supabase Storage — HLS stream URL
 const VIDEO_SRC = 'https://www.w3schools.com/html/mov_bbb.mp4';
-const THUMBNAIL = 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=450&fit=crop';
+const THUMBNAIL =
+  'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=450&fit=crop';
 const THUMBNAIL_ALT = 'Open ancient religious manuscript with illuminated text on wooden desk';
 
 export default function VideoPlayer() {
@@ -75,7 +76,10 @@ export default function VideoPlayer() {
 
   const skip = (seconds: number) => {
     if (!videoRef.current) return;
-    videoRef.current.currentTime = Math.max(0, Math.min(videoRef.current.currentTime + seconds, duration));
+    videoRef.current.currentTime = Math.max(
+      0,
+      Math.min(videoRef.current.currentTime + seconds, duration)
+    );
   };
 
   const handleFullscreen = () => {
@@ -93,12 +97,7 @@ export default function VideoPlayer() {
       {/* Thumbnail overlay before play */}
       {!hasStarted && (
         <div className="absolute inset-0 z-10">
-          <AppImage
-            src={THUMBNAIL}
-            alt={THUMBNAIL_ALT}
-            fill
-            className="object-cover opacity-60"
-          />
+          <AppImage src={THUMBNAIL} alt={THUMBNAIL_ALT} fill className="object-cover opacity-60" />
           <div className="absolute inset-0 flex items-center justify-center">
             <button
               onClick={togglePlay}
@@ -125,7 +124,10 @@ export default function VideoPlayer() {
         onLoadedMetadata={handleLoadedMetadata}
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
-        onEnded={() => { setIsPlaying(false); setShowControls(true); }}
+        onEnded={() => {
+          setIsPlaying(false);
+          setShowControls(true);
+        }}
         aria-label="Lesson video: The Holy Trinity in Tewahido Theology"
       />
 

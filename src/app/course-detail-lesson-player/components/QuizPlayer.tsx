@@ -17,14 +17,17 @@ interface QuizQuestion {
 const quizQuestions: QuizQuestion[] = [
   {
     id: 'q-001',
-    question: 'What term does the Ethiopian Orthodox Tewahido Church use to describe the nature of Christ?',
+    question:
+      'What term does the Ethiopian Orthodox Tewahido Church use to describe the nature of Christ?',
     options: ['Monophysite', 'Diophysite', 'Miaphysite', 'Dyothelite'],
     correct: 2,
-    explanation: 'The Tewahido Church affirms Miaphysitism — the belief that Christ has one united divine-human nature, not two separate natures. This distinguishes it from both Chalcedonian and Monophysite positions.',
+    explanation:
+      'The Tewahido Church affirms Miaphysitism — the belief that Christ has one united divine-human nature, not two separate natures. This distinguishes it from both Chalcedonian and Monophysite positions.',
   },
   {
     id: 'q-002',
-    question: 'In the Ge\'ez doxology, which phrase expresses the co-equality of the three persons of the Trinity?',
+    question:
+      "In the Ge'ez doxology, which phrase expresses the co-equality of the three persons of the Trinity?",
     options: [
       'Bism Ab wa Wald wa Menfes Qiddus',
       'Weld Ihud Amlak',
@@ -32,21 +35,30 @@ const quizQuestions: QuizQuestion[] = [
       'Kidus Amlak Ihud',
     ],
     correct: 0,
-    explanation: '"Bism Ab wa Wald wa Menfes Qiddus" (ቢስም አብ ወወልድ ወመንፈስ ቅዱስ) means "In the name of the Father, the Son, and the Holy Spirit" — the foundational Trinitarian invocation used in all liturgical acts.',
+    explanation:
+      '"Bism Ab wa Wald wa Menfes Qiddus" (ቢስም አብ ወወልድ ወመንፈስ ቅዱስ) means "In the name of the Father, the Son, and the Holy Spirit" — the foundational Trinitarian invocation used in all liturgical acts.',
   },
   {
     id: 'q-003',
-    question: 'Which Council\'s definition does the Ethiopian Orthodox Church reject regarding the nature of Christ?',
-    options: ['Council of Nicaea (325)', 'Council of Ephesus (431)', 'Council of Chalcedon (451)', 'Council of Constantinople (381)'],
+    question:
+      "Which Council's definition does the Ethiopian Orthodox Church reject regarding the nature of Christ?",
+    options: [
+      'Council of Nicaea (325)',
+      'Council of Ephesus (431)',
+      'Council of Chalcedon (451)',
+      'Council of Constantinople (381)',
+    ],
     correct: 2,
-    explanation: 'The Council of Chalcedon (451 AD) defined Christ as having two distinct natures. The Ethiopian Orthodox Church, along with other Oriental Orthodox churches, rejected this definition and affirmed the one united nature of Christ.',
+    explanation:
+      'The Council of Chalcedon (451 AD) defined Christ as having two distinct natures. The Ethiopian Orthodox Church, along with other Oriental Orthodox churches, rejected this definition and affirmed the one united nature of Christ.',
   },
   {
     id: 'q-004',
     question: 'The Ethiopic term "ተዋሕዶ" (Tewahido) literally means:',
     options: ['Sacred Unity', 'Made One / United', 'Holy Trinity', 'Divine Nature'],
     correct: 1,
-    explanation: '"Tewahido" (ተዋሕዶ) comes from the Ge\'ez root meaning "to be made one" or "united" — directly expressing the church\'s Christological position that the divine and human natures of Christ are united into one.',
+    explanation:
+      '"Tewahido" (ተዋሕዶ) comes from the Ge\'ez root meaning "to be made one" or "united" — directly expressing the church\'s Christological position that the divine and human natures of Christ are united into one.',
   },
 ];
 
@@ -68,9 +80,7 @@ export default function QuizPlayer() {
   const isAnswered = selectedAnswer !== undefined;
   const isReviewing = quizState === 'reviewing';
 
-  const score = quizQuestions.filter(
-    (q, i) => answers[q.id] === q.correct
-  ).length;
+  const score = quizQuestions.filter((q, i) => answers[q.id] === q.correct).length;
 
   const scorePercent = Math.round((score / quizQuestions.length) * 100);
   const passed = scorePercent >= 80;
@@ -111,10 +121,15 @@ export default function QuizPlayer() {
     reset();
   };
 
-  if (quizState === 'completed' || (quizState === 'reviewing' && currentQ === quizQuestions.length)) {
+  if (
+    quizState === 'completed' ||
+    (quizState === 'reviewing' && currentQ === quizQuestions.length)
+  ) {
     return (
       <div className="bg-card border border-border rounded-xl p-8 text-center space-y-4">
-        <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto ${passed ? 'bg-positive-bg' : 'bg-danger-bg'}`}>
+        <div
+          className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto ${passed ? 'bg-positive-bg' : 'bg-danger-bg'}`}
+        >
           {passed ? (
             <CheckCircle size={32} className="text-positive" />
           ) : (
@@ -127,16 +142,23 @@ export default function QuizPlayer() {
           </h3>
           <p className="text-sm text-muted-foreground mt-1">
             {passed
-              ? 'Excellent work — your understanding of Trinitarian theology is strong.' :'Review the lesson materials and try again when ready.'}
+              ? 'Excellent work — your understanding of Trinitarian theology is strong.'
+              : 'Review the lesson materials and try again when ready.'}
           </p>
         </div>
         <div className="flex items-center justify-center gap-6">
           <div className="text-center">
-            <p className={`text-3xl font-800 tabular-nums ${passed ? 'text-positive' : 'text-danger'}`}>{scorePercent}%</p>
+            <p
+              className={`text-3xl font-800 tabular-nums ${passed ? 'text-positive' : 'text-danger'}`}
+            >
+              {scorePercent}%
+            </p>
             <p className="text-xs text-muted-foreground font-500">Score</p>
           </div>
           <div className="text-center">
-            <p className="text-3xl font-800 tabular-nums text-foreground">{score}/{quizQuestions.length}</p>
+            <p className="text-3xl font-800 tabular-nums text-foreground">
+              {score}/{quizQuestions.length}
+            </p>
             <p className="text-xs text-muted-foreground font-500">Correct</p>
           </div>
           <div className="text-center">
@@ -171,9 +193,11 @@ export default function QuizPlayer() {
               Question {currentQ + 1} of {quizQuestions.length}
             </span>
             {isReviewing && (
-              <span className={`text-xs font-700 px-2 py-0.5 rounded-full ${
-                isCorrect ? 'bg-positive-bg text-positive' : 'bg-danger-bg text-danger'
-              }`}>
+              <span
+                className={`text-xs font-700 px-2 py-0.5 rounded-full ${
+                  isCorrect ? 'bg-positive-bg text-positive' : 'bg-danger-bg text-danger'
+                }`}
+              >
                 {isCorrect ? '✓ Correct' : '✗ Incorrect'}
               </span>
             )}
@@ -189,10 +213,12 @@ export default function QuizPlayer() {
                   i === currentQ
                     ? 'bg-primary scale-125'
                     : isReviewing
-                    ? answers[q.id] === q.correct
-                      ? 'bg-positive' :'bg-danger'
-                    : answers[q.id] !== undefined
-                    ? 'bg-accent' :'bg-muted'
+                      ? answers[q.id] === q.correct
+                        ? 'bg-positive'
+                        : 'bg-danger'
+                      : answers[q.id] !== undefined
+                        ? 'bg-accent'
+                        : 'bg-muted'
                 }`}
                 aria-label={`Go to question ${i + 1}`}
               />
@@ -233,9 +259,15 @@ export default function QuizPlayer() {
                     {...register(`answer-${question.id}`, { required: true })}
                     className="w-4 h-4 text-primary border-border focus:ring-ring"
                   />
-                  <span className={`text-sm font-500 flex-1 ${
-                    isReviewing && isCorrectOption ? 'text-positive font-700' : isReviewing && isSelected && !isCorrectOption ?'text-danger font-700': 'text-foreground'
-                  }`}>
+                  <span
+                    className={`text-sm font-500 flex-1 ${
+                      isReviewing && isCorrectOption
+                        ? 'text-positive font-700'
+                        : isReviewing && isSelected && !isCorrectOption
+                          ? 'text-danger font-700'
+                          : 'text-foreground'
+                    }`}
+                  >
                     {option}
                   </span>
                   {isReviewing && isCorrectOption && (

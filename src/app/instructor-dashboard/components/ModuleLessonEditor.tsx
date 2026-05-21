@@ -1,9 +1,23 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Layers, Plus, ChevronDown, ChevronRight, Video, FileText, HelpCircle, Radio, Upload, GripVertical, Lock, Unlock, Trash2, X } from 'lucide-react';
+import {
+  Layers,
+  Plus,
+  ChevronDown,
+  ChevronRight,
+  Video,
+  FileText,
+  HelpCircle,
+  Radio,
+  Upload,
+  GripVertical,
+  Lock,
+  Unlock,
+  Trash2,
+  X,
+} from 'lucide-react';
 import Icon from '@/components/ui/AppIcon';
-
 
 interface Lesson {
   id: string;
@@ -44,9 +58,27 @@ const initialModules: Module[] = [
     isLocked: false,
     expanded: true,
     lessons: [
-      { id: 'l-001', title: 'Welcome to the Course', type: 'video', duration: '8 min', isFreePreview: true },
-      { id: 'l-002', title: 'Course Materials & Resources', type: 'pdf', duration: '5 min', isFreePreview: false },
-      { id: 'l-003', title: 'Module 1 Quiz', type: 'quiz', duration: '10 min', isFreePreview: false },
+      {
+        id: 'l-001',
+        title: 'Welcome to the Course',
+        type: 'video',
+        duration: '8 min',
+        isFreePreview: true,
+      },
+      {
+        id: 'l-002',
+        title: 'Course Materials & Resources',
+        type: 'pdf',
+        duration: '5 min',
+        isFreePreview: false,
+      },
+      {
+        id: 'l-003',
+        title: 'Module 1 Quiz',
+        type: 'quiz',
+        duration: '10 min',
+        isFreePreview: false,
+      },
     ],
   },
   {
@@ -55,9 +87,27 @@ const initialModules: Module[] = [
     isLocked: false,
     expanded: false,
     lessons: [
-      { id: 'l-004', title: 'The Holy Trinity in Tewahido', type: 'video', duration: '22 min', isFreePreview: false },
-      { id: 'l-005', title: 'Sacred Texts Reading', type: 'text', duration: '15 min', isFreePreview: false },
-      { id: 'l-006', title: 'Live Q&A Session', type: 'live', duration: '60 min', isFreePreview: false },
+      {
+        id: 'l-004',
+        title: 'The Holy Trinity in Tewahido',
+        type: 'video',
+        duration: '22 min',
+        isFreePreview: false,
+      },
+      {
+        id: 'l-005',
+        title: 'Sacred Texts Reading',
+        type: 'text',
+        duration: '15 min',
+        isFreePreview: false,
+      },
+      {
+        id: 'l-006',
+        title: 'Live Q&A Session',
+        type: 'live',
+        duration: '60 min',
+        isFreePreview: false,
+      },
     ],
   },
   {
@@ -66,8 +116,20 @@ const initialModules: Module[] = [
     isLocked: true,
     expanded: false,
     lessons: [
-      { id: 'l-007', title: 'Kidasie Fundamentals', type: 'video', duration: '18 min', isFreePreview: false },
-      { id: 'l-008', title: 'Practice Assessment', type: 'quiz', duration: '12 min', isFreePreview: false },
+      {
+        id: 'l-007',
+        title: 'Kidasie Fundamentals',
+        type: 'video',
+        duration: '18 min',
+        isFreePreview: false,
+      },
+      {
+        id: 'l-008',
+        title: 'Practice Assessment',
+        type: 'quiz',
+        duration: '12 min',
+        isFreePreview: false,
+      },
     ],
   },
 ];
@@ -90,7 +152,11 @@ function UploadLessonModal({ moduleTitle, onClose }: UploadLessonModalProps) {
             <h2 className="text-base font-700 text-foreground">Add Lesson</h2>
             <p className="text-xs text-muted-foreground mt-0.5">{moduleTitle}</p>
           </div>
-          <button onClick={onClose} className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-secondary transition-colors" aria-label="Close">
+          <button
+            onClick={onClose}
+            className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-secondary transition-colors"
+            aria-label="Close"
+          >
             <X size={16} className="text-muted-foreground" />
           </button>
         </div>
@@ -98,9 +164,11 @@ function UploadLessonModal({ moduleTitle, onClose }: UploadLessonModalProps) {
         <div className="space-y-4">
           {/* Lesson Type */}
           <div>
-            <label className="text-xs font-600 text-muted-foreground uppercase tracking-wider block mb-2">Content Type</label>
+            <label className="text-xs font-600 text-muted-foreground uppercase tracking-wider block mb-2">
+              Content Type
+            </label>
             <div className="grid grid-cols-5 gap-1.5">
-              {(['video', 'pdf', 'text', 'quiz', 'live'] as const).map(t => {
+              {(['video', 'pdf', 'text', 'quiz', 'live'] as const).map((t) => {
                 const Icon = lessonTypeIcon[t];
                 return (
                   <button
@@ -108,7 +176,8 @@ function UploadLessonModal({ moduleTitle, onClose }: UploadLessonModalProps) {
                     onClick={() => setLessonType(t)}
                     className={`flex flex-col items-center gap-1 py-2.5 rounded-lg border text-xs font-600 transition-colors ${
                       lessonType === t
-                        ? 'bg-primary/10 border-primary/40 text-primary' :'bg-card border-border text-muted-foreground hover:bg-secondary'
+                        ? 'bg-primary/10 border-primary/40 text-primary'
+                        : 'bg-card border-border text-muted-foreground hover:bg-secondary'
                     }`}
                   >
                     <Icon size={14} />
@@ -121,11 +190,13 @@ function UploadLessonModal({ moduleTitle, onClose }: UploadLessonModalProps) {
 
           {/* Title */}
           <div>
-            <label className="text-xs font-600 text-muted-foreground uppercase tracking-wider block mb-1.5">Lesson Title</label>
+            <label className="text-xs font-600 text-muted-foreground uppercase tracking-wider block mb-1.5">
+              Lesson Title
+            </label>
             <input
               type="text"
               value={title}
-              onChange={e => setTitle(e.target.value)}
+              onChange={(e) => setTitle(e.target.value)}
               placeholder="Enter lesson title…"
               className="w-full px-3 py-2 text-sm bg-input border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-colors"
             />
@@ -138,15 +209,25 @@ function UploadLessonModal({ moduleTitle, onClose }: UploadLessonModalProps) {
                 Upload {lessonType === 'video' ? 'Video File' : 'PDF Document'}
               </label>
               <div
-                onDragOver={e => { e.preventDefault(); setIsDragging(true); }}
+                onDragOver={(e) => {
+                  e.preventDefault();
+                  setIsDragging(true);
+                }}
                 onDragLeave={() => setIsDragging(false)}
-                onDrop={e => { e.preventDefault(); setIsDragging(false); }}
+                onDrop={(e) => {
+                  e.preventDefault();
+                  setIsDragging(false);
+                }}
                 className={`border-2 border-dashed rounded-xl p-6 text-center transition-all cursor-pointer ${
-                  isDragging ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/40 hover:bg-secondary/50'
+                  isDragging
+                    ? 'border-primary bg-primary/5'
+                    : 'border-border hover:border-primary/40 hover:bg-secondary/50'
                 }`}
               >
                 <Upload size={20} className="mx-auto text-muted-foreground mb-2" />
-                <p className="text-sm font-600 text-foreground">Drop file here or click to browse</p>
+                <p className="text-sm font-600 text-foreground">
+                  Drop file here or click to browse
+                </p>
                 <p className="text-xs text-muted-foreground mt-1">
                   {lessonType === 'video' ? 'MP4, MOV up to 2GB' : 'PDF up to 50MB'}
                 </p>
@@ -157,7 +238,9 @@ function UploadLessonModal({ moduleTitle, onClose }: UploadLessonModalProps) {
           {/* Duration */}
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-xs font-600 text-muted-foreground uppercase tracking-wider block mb-1.5">Duration (min)</label>
+              <label className="text-xs font-600 text-muted-foreground uppercase tracking-wider block mb-1.5">
+                Duration (min)
+              </label>
               <input
                 type="number"
                 placeholder="15"
@@ -175,7 +258,10 @@ function UploadLessonModal({ moduleTitle, onClose }: UploadLessonModalProps) {
         </div>
 
         <div className="flex gap-3 mt-6">
-          <button onClick={onClose} className="flex-1 py-2.5 text-sm font-600 text-muted-foreground bg-secondary border border-border rounded-lg hover:bg-muted transition-colors">
+          <button
+            onClick={onClose}
+            className="flex-1 py-2.5 text-sm font-600 text-muted-foreground bg-secondary border border-border rounded-lg hover:bg-muted transition-colors"
+          >
             Cancel
           </button>
           <button
@@ -192,20 +278,23 @@ function UploadLessonModal({ moduleTitle, onClose }: UploadLessonModalProps) {
 
 export default function ModuleLessonEditor() {
   const [modules, setModules] = useState<Module[]>(initialModules);
-  const [uploadModal, setUploadModal] = useState<{ open: boolean; moduleTitle: string }>({ open: false, moduleTitle: '' });
+  const [uploadModal, setUploadModal] = useState<{ open: boolean; moduleTitle: string }>({
+    open: false,
+    moduleTitle: '',
+  });
   const [newModuleTitle, setNewModuleTitle] = useState('');
   const [showAddModule, setShowAddModule] = useState(false);
 
   const toggleExpand = (id: string) => {
-    setModules(prev => prev.map(m => m.id === id ? { ...m, expanded: !m.expanded } : m));
+    setModules((prev) => prev.map((m) => (m.id === id ? { ...m, expanded: !m.expanded } : m)));
   };
 
   const toggleLock = (id: string) => {
-    setModules(prev => prev.map(m => m.id === id ? { ...m, isLocked: !m.isLocked } : m));
+    setModules((prev) => prev.map((m) => (m.id === id ? { ...m, isLocked: !m.isLocked } : m)));
   };
 
   const removeModule = (id: string) => {
-    setModules(prev => prev.filter(m => m.id !== id));
+    setModules((prev) => prev.filter((m) => m.id !== id));
   };
 
   const addModule = () => {
@@ -217,7 +306,7 @@ export default function ModuleLessonEditor() {
       expanded: true,
       lessons: [],
     };
-    setModules(prev => [...prev, newMod]);
+    setModules((prev) => [...prev, newMod]);
     setNewModuleTitle('');
     setShowAddModule(false);
   };
@@ -244,7 +333,10 @@ export default function ModuleLessonEditor() {
 
         <div className="space-y-2">
           {modules.map((module, idx) => (
-            <div key={module.id} className="bg-card border border-border rounded-xl overflow-hidden shadow-card">
+            <div
+              key={module.id}
+              className="bg-card border border-border rounded-xl overflow-hidden shadow-card"
+            >
               {/* Module Header */}
               <div className="flex items-center gap-2 px-3 py-3 hover:bg-secondary/50 transition-colors">
                 <GripVertical size={14} className="text-muted-foreground/40 cursor-grab shrink-0" />
@@ -267,7 +359,9 @@ export default function ModuleLessonEditor() {
                     onClick={() => toggleLock(module.id)}
                     className="w-6 h-6 flex items-center justify-center rounded hover:bg-muted transition-colors"
                     aria-label={module.isLocked ? 'Unlock module' : 'Lock module'}
-                    title={module.isLocked ? 'Locked — click to unlock' : 'Unlocked — click to lock'}
+                    title={
+                      module.isLocked ? 'Locked — click to unlock' : 'Unlocked — click to lock'
+                    }
                   >
                     {module.isLocked ? (
                       <Lock size={12} className="text-warning" />
@@ -317,12 +411,19 @@ export default function ModuleLessonEditor() {
                             lIdx < module.lessons.length - 1 ? 'border-b border-border/50' : ''
                           }`}
                         >
-                          <GripVertical size={12} className="text-muted-foreground/30 cursor-grab shrink-0" />
-                          <div className={`w-6 h-6 rounded-md bg-muted flex items-center justify-center shrink-0`}>
+                          <GripVertical
+                            size={12}
+                            className="text-muted-foreground/30 cursor-grab shrink-0"
+                          />
+                          <div
+                            className={`w-6 h-6 rounded-md bg-muted flex items-center justify-center shrink-0`}
+                          >
                             <LessonIcon size={12} className={lessonTypeColor[lesson.type]} />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <p className="text-xs font-600 text-foreground truncate">{lesson.title}</p>
+                            <p className="text-xs font-600 text-foreground truncate">
+                              {lesson.title}
+                            </p>
                             <p className="text-[10px] text-muted-foreground">{lesson.duration}</p>
                           </div>
                           <div className="flex items-center gap-2 shrink-0">
@@ -331,8 +432,14 @@ export default function ModuleLessonEditor() {
                                 Free
                               </span>
                             )}
-                            <button className="w-5 h-5 flex items-center justify-center rounded hover:bg-danger-bg transition-colors" aria-label="Remove lesson">
-                              <Trash2 size={10} className="text-muted-foreground hover:text-danger" />
+                            <button
+                              className="w-5 h-5 flex items-center justify-center rounded hover:bg-danger-bg transition-colors"
+                              aria-label="Remove lesson"
+                            >
+                              <Trash2
+                                size={10}
+                                className="text-muted-foreground hover:text-danger"
+                              />
                             </button>
                           </div>
                         </div>
@@ -358,17 +465,26 @@ export default function ModuleLessonEditor() {
               <input
                 type="text"
                 value={newModuleTitle}
-                onChange={e => setNewModuleTitle(e.target.value)}
-                onKeyDown={e => { if (e.key === 'Enter') addModule(); if (e.key === 'Escape') setShowAddModule(false); }}
+                onChange={(e) => setNewModuleTitle(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') addModule();
+                  if (e.key === 'Escape') setShowAddModule(false);
+                }}
                 placeholder="Module title…"
                 autoFocus
                 className="w-full px-3 py-2 text-sm bg-input border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-colors mb-2"
               />
               <div className="flex gap-2">
-                <button onClick={() => setShowAddModule(false)} className="flex-1 py-1.5 text-xs font-600 text-muted-foreground bg-secondary border border-border rounded-lg hover:bg-muted transition-colors">
+                <button
+                  onClick={() => setShowAddModule(false)}
+                  className="flex-1 py-1.5 text-xs font-600 text-muted-foreground bg-secondary border border-border rounded-lg hover:bg-muted transition-colors"
+                >
                   Cancel
                 </button>
-                <button onClick={addModule} className="flex-1 py-1.5 text-xs font-700 gradient-primary text-primary-foreground rounded-lg hover:opacity-90 transition-all">
+                <button
+                  onClick={addModule}
+                  className="flex-1 py-1.5 text-xs font-700 gradient-primary text-primary-foreground rounded-lg hover:opacity-90 transition-all"
+                >
                   Add Module
                 </button>
               </div>

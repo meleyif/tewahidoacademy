@@ -1,7 +1,18 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ChevronDown, ChevronRight, Lock, CheckCircle, Play, FileText, HelpCircle, Video, Circle, Globe } from 'lucide-react';
+import {
+  ChevronDown,
+  ChevronRight,
+  Lock,
+  CheckCircle,
+  Play,
+  FileText,
+  HelpCircle,
+  Video,
+  Circle,
+  Globe,
+} from 'lucide-react';
 import Badge from '@/components/ui/Badge';
 import { useLanguage } from '@/lib/LanguageContext';
 
@@ -49,12 +60,12 @@ function computeSequentialLocking(modules: Module[]): Module[] {
     // Check if previous module is fully completed
     if (modIndex > 0) {
       const prevMod = modules[modIndex - 1];
-      const prevModDone = prevMod.lessons.every(l => l.status === 'completed');
+      const prevModDone = prevMod.lessons.every((l) => l.status === 'completed');
       if (!prevModDone) {
         return {
           ...mod,
           isLocked: true,
-          lessons: mod.lessons.map(l => ({ ...l, status: 'locked' as LessonStatus })),
+          lessons: mod.lessons.map((l) => ({ ...l, status: 'locked' as LessonStatus })),
         };
       }
     }
@@ -80,10 +91,42 @@ const rawModules: Module[] = [
     titleAm: 'ሞጁል ፩: የእምነት መሠረቶች',
     isLocked: false,
     lessons: [
-      { id: 'lesson-001', title: 'Introduction to Ethiopian Orthodox Tewahido', titleAm: 'ወደ ተዋሕዶ ቤተ ክርስቲያን መግቢያ', type: 'video', durationMin: 18, status: 'completed', isFreePreview: true },
-      { id: 'lesson-002', title: 'History of the Ethiopian Church — 1st Century to Axum', titleAm: 'የኢትዮጵያ ቤተ ክርስቲያን ታሪክ', type: 'video', durationMin: 22, status: 'completed', isFreePreview: false },
-      { id: 'lesson-003', title: 'Sacred Texts: The Octateuch and Ethiopian Canon', titleAm: 'ቅዱሳን ጽሑፎች', type: 'pdf', durationMin: 15, status: 'completed', isFreePreview: false },
-      { id: 'lesson-004', title: 'Module 1 Knowledge Check', titleAm: 'ሞጁል ፩ ፈተና', type: 'quiz', durationMin: 10, status: 'completed', isFreePreview: false },
+      {
+        id: 'lesson-001',
+        title: 'Introduction to Ethiopian Orthodox Tewahido',
+        titleAm: 'ወደ ተዋሕዶ ቤተ ክርስቲያን መግቢያ',
+        type: 'video',
+        durationMin: 18,
+        status: 'completed',
+        isFreePreview: true,
+      },
+      {
+        id: 'lesson-002',
+        title: 'History of the Ethiopian Church — 1st Century to Axum',
+        titleAm: 'የኢትዮጵያ ቤተ ክርስቲያን ታሪክ',
+        type: 'video',
+        durationMin: 22,
+        status: 'completed',
+        isFreePreview: false,
+      },
+      {
+        id: 'lesson-003',
+        title: 'Sacred Texts: The Octateuch and Ethiopian Canon',
+        titleAm: 'ቅዱሳን ጽሑፎች',
+        type: 'pdf',
+        durationMin: 15,
+        status: 'completed',
+        isFreePreview: false,
+      },
+      {
+        id: 'lesson-004',
+        title: 'Module 1 Knowledge Check',
+        titleAm: 'ሞጁል ፩ ፈተና',
+        type: 'quiz',
+        durationMin: 10,
+        status: 'completed',
+        isFreePreview: false,
+      },
     ],
   },
   {
@@ -92,12 +135,60 @@ const rawModules: Module[] = [
     titleAm: 'ሞጁል ፪: ሥነ-መለኮት እና ትምህርት',
     isLocked: false,
     lessons: [
-      { id: 'lesson-005', title: 'The Nicene Creed in Tewahido Context', titleAm: 'የኒቂያ ጸሎተ-ሃይማኖት', type: 'video', durationMin: 25, status: 'completed', isFreePreview: false },
-      { id: 'lesson-006', title: 'Monophysitism vs Miaphysitism — A Clear Distinction', titleAm: 'ሚያፊዚቲዝም ማብራሪያ', type: 'text', durationMin: 12, status: 'completed', isFreePreview: false },
-      { id: 'lesson-007', title: 'The Holy Trinity in Tewahido Theology', titleAm: 'ቅድስት ሥላሴ', type: 'video', durationMin: 28, status: 'in_progress', isFreePreview: false },
-      { id: 'lesson-008', title: 'Saints, Intercession, and the Theotokos', titleAm: 'ቅዱሳን እና ድምፃቸው', type: 'video', durationMin: 20, status: 'not_started', isFreePreview: false },
-      { id: 'lesson-009', title: 'Theology Deep Dive — Live Q&A Session', titleAm: 'ቀጥታ ውይይት', type: 'live', durationMin: 60, status: 'not_started', isFreePreview: false },
-      { id: 'lesson-010', title: 'Module 2 Assessment', titleAm: 'ሞጁል ፪ ፈተና', type: 'quiz', durationMin: 15, status: 'not_started', isFreePreview: false },
+      {
+        id: 'lesson-005',
+        title: 'The Nicene Creed in Tewahido Context',
+        titleAm: 'የኒቂያ ጸሎተ-ሃይማኖት',
+        type: 'video',
+        durationMin: 25,
+        status: 'completed',
+        isFreePreview: false,
+      },
+      {
+        id: 'lesson-006',
+        title: 'Monophysitism vs Miaphysitism — A Clear Distinction',
+        titleAm: 'ሚያፊዚቲዝም ማብራሪያ',
+        type: 'text',
+        durationMin: 12,
+        status: 'completed',
+        isFreePreview: false,
+      },
+      {
+        id: 'lesson-007',
+        title: 'The Holy Trinity in Tewahido Theology',
+        titleAm: 'ቅድስት ሥላሴ',
+        type: 'video',
+        durationMin: 28,
+        status: 'in_progress',
+        isFreePreview: false,
+      },
+      {
+        id: 'lesson-008',
+        title: 'Saints, Intercession, and the Theotokos',
+        titleAm: 'ቅዱሳን እና ድምፃቸው',
+        type: 'video',
+        durationMin: 20,
+        status: 'not_started',
+        isFreePreview: false,
+      },
+      {
+        id: 'lesson-009',
+        title: 'Theology Deep Dive — Live Q&A Session',
+        titleAm: 'ቀጥታ ውይይት',
+        type: 'live',
+        durationMin: 60,
+        status: 'not_started',
+        isFreePreview: false,
+      },
+      {
+        id: 'lesson-010',
+        title: 'Module 2 Assessment',
+        titleAm: 'ሞጁል ፪ ፈተና',
+        type: 'quiz',
+        durationMin: 15,
+        status: 'not_started',
+        isFreePreview: false,
+      },
     ],
   },
   {
@@ -106,11 +197,51 @@ const rawModules: Module[] = [
     titleAm: 'ሞጁል ፫: ቅዳሴ እና ልምምድ',
     isLocked: false,
     lessons: [
-      { id: 'lesson-011', title: 'The Kidasie: Structure and Meaning', titleAm: 'ቅዳሴ: አወቃቀር እና ትርጉም', type: 'video', durationMin: 30, status: 'not_started', isFreePreview: false },
-      { id: 'lesson-012', title: 'Anaphora of the Apostles — Full Text', titleAm: 'የሐዋርያት ቅዳሴ', type: 'pdf', durationMin: 20, status: 'not_started', isFreePreview: false },
-      { id: 'lesson-013', title: 'Fasting and Feast Days in the Ethiopic Calendar', titleAm: 'ጾምና ፆም ቀናት', type: 'text', durationMin: 14, status: 'not_started', isFreePreview: false },
-      { id: 'lesson-014', title: 'Liturgical Vestments and Sacred Objects', titleAm: 'ቅዱሳን ልብሶች', type: 'video', durationMin: 18, status: 'not_started', isFreePreview: false },
-      { id: 'lesson-015', title: 'Module 3 Final Assessment', titleAm: 'ሞጁል ፫ ፈተና', type: 'quiz', durationMin: 20, status: 'not_started', isFreePreview: false },
+      {
+        id: 'lesson-011',
+        title: 'The Kidasie: Structure and Meaning',
+        titleAm: 'ቅዳሴ: አወቃቀር እና ትርጉም',
+        type: 'video',
+        durationMin: 30,
+        status: 'not_started',
+        isFreePreview: false,
+      },
+      {
+        id: 'lesson-012',
+        title: 'Anaphora of the Apostles — Full Text',
+        titleAm: 'የሐዋርያት ቅዳሴ',
+        type: 'pdf',
+        durationMin: 20,
+        status: 'not_started',
+        isFreePreview: false,
+      },
+      {
+        id: 'lesson-013',
+        title: 'Fasting and Feast Days in the Ethiopic Calendar',
+        titleAm: 'ጾምና ፆም ቀናት',
+        type: 'text',
+        durationMin: 14,
+        status: 'not_started',
+        isFreePreview: false,
+      },
+      {
+        id: 'lesson-014',
+        title: 'Liturgical Vestments and Sacred Objects',
+        titleAm: 'ቅዱሳን ልብሶች',
+        type: 'video',
+        durationMin: 18,
+        status: 'not_started',
+        isFreePreview: false,
+      },
+      {
+        id: 'lesson-015',
+        title: 'Module 3 Final Assessment',
+        titleAm: 'ሞጁል ፫ ፈተና',
+        type: 'quiz',
+        durationMin: 20,
+        status: 'not_started',
+        isFreePreview: false,
+      },
     ],
   },
 ];
@@ -137,7 +268,9 @@ export default function CourseCurriculumSidebar() {
     setExpandedModules((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  const completedCount = modules.flatMap((m) => m.lessons).filter((l) => l.status === 'completed').length;
+  const completedCount = modules
+    .flatMap((m) => m.lessons)
+    .filter((l) => l.status === 'completed').length;
   const totalCount = modules.flatMap((m) => m.lessons).length;
   const progressPct = Math.round((completedCount / totalCount) * 100);
 
@@ -173,7 +306,9 @@ export default function CourseCurriculumSidebar() {
             aria-valuemax={100}
           />
         </div>
-        <p className="text-[10px] text-muted-foreground mt-1 tabular-nums">{progressPct}% complete</p>
+        <p className="text-[10px] text-muted-foreground mt-1 tabular-nums">
+          {progressPct}% complete
+        </p>
       </div>
 
       {/* Modules list */}
@@ -194,14 +329,18 @@ export default function CourseCurriculumSidebar() {
                 aria-expanded={isExpanded}
               >
                 <div className="flex-1 min-w-0">
-                  <p className={`text-xs font-700 leading-snug ${mod.isLocked ? 'text-muted-foreground' : 'text-foreground'} ${isAmharic ? 'font-ethiopic' : ''}`}>
+                  <p
+                    className={`text-xs font-700 leading-snug ${mod.isLocked ? 'text-muted-foreground' : 'text-foreground'} ${isAmharic ? 'font-ethiopic' : ''}`}
+                  >
                     {isAmharic ? mod.titleAm : mod.title}
                   </p>
                   <p className="text-[10px] text-muted-foreground mt-0.5 tabular-nums">
                     {mod.isLocked ? (
                       <span className="flex items-center gap-1">
                         <Lock size={9} />
-                        {isAmharic ? 'ቀዳሚ ሞጁልን ያጠናቅቁ' : `Complete Module ${modules.indexOf(mod)} first`}
+                        {isAmharic
+                          ? 'ቀዳሚ ሞጁልን ያጠናቅቁ'
+                          : `Complete Module ${modules.indexOf(mod)} first`}
                       </span>
                     ) : (
                       `${modCompleted}/${mod.lessons.length} done`
@@ -232,12 +371,15 @@ export default function CourseCurriculumSidebar() {
                         disabled={isLocked}
                         className={`w-full flex items-start gap-2.5 px-4 py-2.5 text-left transition-all border-l-2 ${
                           isActive
-                            ? 'border-primary bg-primary/5' :'border-transparent hover:bg-secondary/40 hover:border-border'
+                            ? 'border-primary bg-primary/5'
+                            : 'border-transparent hover:bg-secondary/40 hover:border-border'
                         } ${isLocked ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
                       >
                         <div className="mt-0.5 shrink-0">{statusIcon[lesson.status]}</div>
                         <div className="flex-1 min-w-0">
-                          <p className={`text-xs leading-snug font-600 ${isActive ? 'text-primary' : isLocked ? 'text-muted-foreground' : 'text-foreground'} ${isAmharic ? 'font-ethiopic' : ''}`}>
+                          <p
+                            className={`text-xs leading-snug font-600 ${isActive ? 'text-primary' : isLocked ? 'text-muted-foreground' : 'text-foreground'} ${isAmharic ? 'font-ethiopic' : ''}`}
+                          >
                             {isAmharic ? lesson.titleAm : lesson.title}
                           </p>
                           <div className="flex items-center gap-2 mt-1">

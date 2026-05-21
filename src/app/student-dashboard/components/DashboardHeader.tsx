@@ -16,7 +16,9 @@ export default function DashboardHeader() {
             {isAmharic ? 'እንኳን ደህና መጡ፣ ዮናስ ✞' : 'Good morning, Yonas ✞'}
           </h1>
           <p className={`text-sm text-muted-foreground mt-0.5 ${isAmharic ? 'font-ethiopic' : ''}`}>
-            {isAmharic ? 'ከቆሙበት ቀጥሉ — ተከታታይ ጥናትዎ ንቁ ነው።' : 'Continue where you left off — your streak is active.'}
+            {isAmharic
+              ? 'ከቆሙበት ቀጥሉ — ተከታታይ ጥናትዎ ንቁ ነው።'
+              : 'Continue where you left off — your streak is active.'}
           </p>
         </div>
 
@@ -32,7 +34,10 @@ export default function DashboardHeader() {
           </Link>
 
           {/* Notifications */}
-          <button className="relative w-9 h-9 flex items-center justify-center rounded-lg border border-border bg-card hover:bg-secondary transition-colors" aria-label="View notifications">
+          <button
+            className="relative w-9 h-9 flex items-center justify-center rounded-lg border border-border bg-card hover:bg-secondary transition-colors"
+            aria-label="View notifications"
+          >
             <Bell size={16} className="text-muted-foreground" />
             <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-danger" />
           </button>

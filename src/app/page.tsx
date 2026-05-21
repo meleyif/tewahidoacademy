@@ -1,6 +1,6 @@
 import React from 'react';
-import AuthPage from './components/AuthPage';
+import LandingPage from './components/LandingPage';
 
 export default function Page() {
-  return <AuthPage />;
+  return <LandingPage />;
 }

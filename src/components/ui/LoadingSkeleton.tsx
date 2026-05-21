@@ -5,9 +5,7 @@ interface SkeletonProps {
 }
 
 export function Skeleton({ className = '' }: SkeletonProps) {
-  return (
-    <div className={`animate-pulse bg-muted rounded-md ${className}`} />
-  );
+  return <div className={`animate-pulse bg-muted rounded-md ${className}`} />;
 }
 
 export function DashboardSkeleton() {
@@ -39,7 +37,7 @@ export function LessonPlayerSkeleton() {
         <Skeleton className="h-6 w-48" />
         <Skeleton className="h-4 w-32" />
         <div className="space-y-2 mt-4">
-          {['s1','s2','s3','s4','s5'].map((k) => (
+          {['s1', 's2', 's3', 's4', 's5'].map((k) => (
             <Skeleton key={`skel-${k}`} className="h-10" />
           ))}
         </div>
